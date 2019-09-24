@@ -1,4 +1,4 @@
-// 10727216 §õ«~¼İ  10727246 ¼B®Ê¦¨ 
+// 10727216 æå“æ¯…  10727246 åŠ‰æ™‰æˆ 
 # include <iostream>
 # include <stdio.h>
 # include <stdlib.h>
@@ -10,21 +10,21 @@ using namespace std ;
 typedef char Str500[500] ;
 
 int Readint() ;
-// Åª¦r¦ê¨Ã¥BÂà¦¨¼Æ¦r 
+// è®€å­—ä¸²ä¸¦ä¸”è½‰æˆæ•¸å­— 
 
 void Iterative() ;
-// °j°é¼Ò¦¡ 
+// è¿´åœˆæ¨¡å¼ 
 
 void Recursive() ;
-// »¼°j¼Ò¦¡
+// éè¿´æ¨¡å¼
 
 void Fibonacci( long long int & preprenum, long long int & prenum, long long int inputnum, int & time ) ; 
-// ­pºâ¶O¤ó¼Æ¦Cªº»¼°j 
+// è¨ˆç®—è²»æ°æ•¸åˆ—çš„éè¿´ 
 
 void  Findfactor( long long int & time, long long int currentnum, long long int & runtime ) ; 
-// §ä¦]¼Æªº»¼°j
+// æ‰¾å› æ•¸çš„éè¿´
 
-int main() { // ¥Dµ{¦¡ 
+int main() { // ä¸»ç¨‹å¼ 
 	int mode = 0 ;
 	cout << "** Fibonacci Series Generator **" << endl ;
 	cout << "* 0. Quit                      *" << endl ;
@@ -32,145 +32,145 @@ int main() { // ¥Dµ{¦¡
 	cout << "* 2. Recursive generation      *" << endl ;
 	cout << "********************************" << endl << endl ;
 	cout << "Input a command(0, 1, 2):" ;
-	mode = Readint() ; // Åª¤J 
-	while ( mode != 0 ) { // §PÂ_¦³¨S¦³µ²§ô 
+	mode = Readint() ; // è®€å…¥ 
+	while ( mode != 0 ) { // åˆ¤æ–·æœ‰æ²’æœ‰çµæŸ 
 		if ( mode == 1 ) {
-			Iterative() ; // ¨Ï¥ÎªÌ¿é¤J¡i1¡j¶i°j°é¼Ò¦¡ 
+			Iterative() ; // ä½¿ç”¨è€…è¼¸å…¥ã€1ã€‘é€²è¿´åœˆæ¨¡å¼ 
 		}
 		else if ( mode == 2 ) {  
-			Recursive() ; // ¨Ï¥ÎªÌ¿é¤J¡i2¡j¶i»¼°j¼Ò¦¡ 
+			Recursive() ; // ä½¿ç”¨è€…è¼¸å…¥ã€2ã€‘é€²éè¿´æ¨¡å¼ 
 		}
-		else { // ¨Ï¥ÎªÌ¶Ã¨Ó
+		else { // ä½¿ç”¨è€…äº‚ä¾†
 			cout << endl << "error command ! Please enter again !" << endl <<endl ; 
 		}
 		
-		system( "pause" ) ; // µe­±¼È°± 
-		system( "CLS" ) ;   // ²MªÅµe­± 
+		system( "pause" ) ; // ç•«é¢æš«åœ 
+		system( "CLS" ) ;   // æ¸…ç©ºç•«é¢ 
 	    cout << "** Fibonacci Series Generator **" << endl ;
 	    cout << "* 0. Quit                      *" << endl ;
 	    cout << "* 1. Iterative generation      *" << endl ;
 	    cout << "* 2. Recursive generation      *" << endl ;
 	    cout << "********************************" << endl << endl ;
 	    cout << "Input a command(0, 1, 2):" ;
-	    mode = Readint() ; //¶]§¹¤§«áÄ~ÄòÅª 
+	    mode = Readint() ; //è·‘å®Œä¹‹å¾Œç¹¼çºŒè®€ 
 	}
 	
 	if ( mode == 0 ) {  
-		cout << "bye bye" << endl ; // ¨Ï¥ÎªÌµ²§ô»¡ÙTÙT 
+		cout << "bye bye" << endl ; // ä½¿ç”¨è€…çµæŸèªªæ°æ° 
 	}
 	
-	system( "pause" ) ; // Åıµe­±°±¦í¤£µM·|ª½±µ¸õ¨« 
+	system( "pause" ) ; // è®“ç•«é¢åœä½ä¸ç„¶æœƒç›´æ¥è·³èµ° 
 	return 0 ;
 } // main()
 
-int Readint() { // Åª¦r¦ê¨Ã¥BÂà¦¨¼Æ¦r 
+int Readint() { // è®€å­—ä¸²ä¸¦ä¸”è½‰æˆæ•¸å­— 
 	Str500 input, temp ;
 	int num = -1, tempnum = 0 ;
 	for ( int i = 0 ; i < strlen( input ) ; i++ ) {
 		input[i] = '\0' ;
-	} //²MªÅ¦r¦ê 
+	} //æ¸…ç©ºå­—ä¸² 
 	
 	for ( int i = 0 ; i < strlen( temp ) ; i++ ) {
 		temp[i] = '\0' ;
-	} //²MªÅ¦r¦ê 
+	} //æ¸…ç©ºå­—ä¸² 
 	
-	scanf ( "%s", input ) ; // Åª¤J 	
-	for( int i = 0 ; i < strlen( input ) ; i++ ) { // ¾ã­Óinput¦r¦ê¶]¤@¹M 
-		if ( input[i] - '0' >= 0 && input[i] - '0' <= 9 ) { // ¬O¼Æ¦r 
-			temp[tempnum] = input[i] ; // °O¿ı¤U¨Ó 
+	scanf ( "%s", input ) ; // è®€å…¥ 	
+	for( int i = 0 ; i < strlen( input ) ; i++ ) { // æ•´å€‹inputå­—ä¸²è·‘ä¸€é 
+		if ( input[i] - '0' >= 0 && input[i] - '0' <= 9 ) { // æ˜¯æ•¸å­— 
+			temp[tempnum] = input[i] ; // è¨˜éŒ„ä¸‹ä¾† 
 			tempnum++ ;
-			num = atoi( temp ) ; // ¦r¦êÂà¼Æ¦r 
+			num = atoi( temp ) ; // å­—ä¸²è½‰æ•¸å­— 
 		}
 		else {
-			i = 999 ; // ¸õ¥X°j°é 
+			i = 999 ; // è·³å‡ºè¿´åœˆ 
 		}
 	}
 	
-	return num ; // ¦^¶Ç³Ì²×ªº­È 
+	return num ; // å›å‚³æœ€çµ‚çš„å€¼ 
 } //  Readint()
 
-void Iterative() { // °j°é¼Ò¦¡ 
+void Iterative() { // è¿´åœˆæ¨¡å¼ 
 	cout << "Loop Mode" << endl ;
 	long long int inputnum = 0, sqrtnum = 0, anotherfactor = 0 ; 
 	long long int preprenum = 0, prenum = 1, currentnum = 0 ;
 	int looptime = 0 ;
 	cout << "please input a number :" ; 
-	inputnum = Readint() ; //  Åª¤J 
-	while ( inputnum < 0 || inputnum > 92 ) { // ¦pªG¼Æ¦r¶W¥X½d³ò¦A¨Ó¤@¦¸ 
+	inputnum = Readint() ; //  è®€å…¥ 
+	while ( inputnum < 0 || inputnum > 92 ) { // å¦‚æœæ•¸å­—è¶…å‡ºç¯„åœå†è®“è¼¸å…¥è€…é‡æ–°è¼¸å…¥
     	cout << "please input a number :" ; 
         inputnum = Readint() ;
 	}
 	
-	for ( int i = 1 ; i <= inputnum ; i++ ) { // ³]©w²×ÂI 
+	for ( int i = 1 ; i <= inputnum ; i++ ) { // è¨­å®šçµ‚é» 
 	    looptime++ ;
-		currentnum = preprenum + prenum ; //  ³]©w¶O¤ó¼Æ¦Cºâ¨ì­ş¤F 
-		cout << "[ " << i << " ] " << currentnum << " = " ;
-		preprenum = prenum ;  // ¬ö¿ı¤W¤@­Ó¼Æ¦r 
-		prenum = currentnum ; // °O¿ı¥Ø«e¼Æ¦r 
-		sqrtnum = sqrt( currentnum ) ; // ²{¦b¼Æ¦r¶}®Ú¸¹ 
+		currentnum = preprenum + prenum ; //  è¨­å®šè²»æ°æ•¸åˆ—ç®—åˆ°å“ªäº† 
+		cout << "[ " << i << " ] " << currentnum << " = " ; // è¼¸å‡º
+		preprenum = prenum ;  // ç´€éŒ„ä¸Šä¸€å€‹æ•¸å­— 
+		prenum = currentnum ; // è¨˜éŒ„ç›®å‰æ•¸å­— 
+		sqrtnum = sqrt( currentnum ) ; // ç¾åœ¨æ•¸å­—é–‹æ ¹è™Ÿ 
   	    long long int runtime = 0 ;
-        for ( long long int j = sqrtnum ; j > 0 ; j -= 1) { // ¶}©l§ä 
+        for ( long long int j = sqrtnum ; j > 0 ; j -= 1) { // é–‹å§‹æ‰¾ 
     	    runtime++ ;
-    	    if ( currentnum % j == 0 ) { // §ä¨ì¤F 
-    	 	    anotherfactor = currentnum / j ; // ³]©w¥t¤@­Ó¦]¼Æ 
-    		    cout << j << " * " << anotherfactor << " ¡iloop time: " << runtime << " times.¡j" << endl ;
-    		    j = 0 ; // ¸õ°j°é 
-		    } // §ä¨ì¤F¡A¿é¥X¨Ã¸õ°j°é 
-	    } // §ä¦]¼Æ 
-	} // ¤j°j°é¶]¶O¤ó¼Æ¦C¡A¤p°j°é¶]¦]¼Æ 
+    	    if ( currentnum % j == 0 ) { // æ‰¾åˆ°äº† 
+    	 	    anotherfactor = currentnum / j ; // è¨­å®šå¦ä¸€å€‹å› æ•¸ 
+    		    cout << j << " * " << anotherfactor << " ã€loop time: " << runtime << " times.ã€‘" << endl ;
+    		    j = 0 ; // è·³è¿´åœˆ 
+		    } // æ‰¾åˆ°äº†ï¼Œè¼¸å‡ºä¸¦è·³è¿´åœˆ 
+	    } // æ‰¾å› æ•¸ 
+	} // å¤§è¿´åœˆè·‘è²»æ°æ•¸åˆ—ï¼Œå°è¿´åœˆè·‘å› æ•¸ 
 	
-	cout << endl << "<Outer loop:   " << looptime << " times>" << endl << endl ; // Á`¦@¶i´X¦¸¶O¤ó°j°é 
+	cout << endl << "<Outer loop:   " << looptime << " times>" << endl << endl ; // ç¸½å…±é€²å¹¾æ¬¡è²»æ°è¿´åœˆ 
 } // Iterative()
 
-void Recursive() { // »¼°j¼Ò¦¡ 
+void Recursive() { // éè¿´æ¨¡å¼ 
 	cout << "Recursion Mode" << endl ;
 	long long int preprenum = 0, prenum = 1, inputnum = 0 ;
 	cout << "please input a number :" ; 
-    inputnum = Readint() ; // Åª¤J 
-    while ( inputnum < 0 || inputnum > 92 ) { // ¶W¹L½d³ò¦AÅª¤@¦¸ 
+    inputnum = Readint() ; // è®€å…¥ 
+    while ( inputnum < 0 || inputnum > 92 ) { // è¶…éç¯„åœå†è®€ä¸€æ¬¡ 
     	cout << "please input a number :" ; 
         inputnum = Readint() ;
 	}
 	
 	int time = 1 ;
-	Fibonacci( preprenum, prenum, inputnum, time ) ; // ¥l³ê»¼°j¶]¶O¤ó¥H¤Î§ä¦]¼Æ 
-	cout << endl << "<Outer recursion:   " << time - 1 << " times>" << endl << endl ; // Á`¦@¶]´X¦¸¶O¤ó»¼°j¡A¦]¬°timeªì©l¬O1©Ò¥H­n´î1 
+	Fibonacci( preprenum, prenum, inputnum, time ) ; // å¬å–šéè¿´è·‘è²»æ°ä»¥åŠæ‰¾å› æ•¸ 
+	cout << endl << "<Outer recursion:   " << time - 1 << " times>" << endl << endl ; // ç¸½å…±è·‘å¹¾æ¬¡è²»æ°éè¿´ï¼Œå› ç‚ºtimeåˆå§‹æ˜¯1æ‰€ä»¥è¦æ¸›1 
 } // Recursive()
 
-void Fibonacci( long long int & preprenum, long long int & prenum, long long int inputnum, int & time ) { // ­pºâ¶O¤ó¼Æ¦Cªº»¼°j 
+void Fibonacci( long long int & preprenum, long long int & prenum, long long int inputnum, int & time ) { // è¨ˆç®—è²»æ°æ•¸åˆ—çš„éè¿´ 
 	if ( time > inputnum ) {
 		; 
-	} // ¶]§¹¤F 
+	} // è·‘å®Œäº† 
 	else {
-		long long int currentnum = preprenum + prenum ; //  ³]©w¶O¤ó¼Æ¦Cºâ¨ì­ş¤F 
+		long long int currentnum = preprenum + prenum ; //  è¨­å®šè²»æ°æ•¸åˆ—ç®—åˆ°å“ªäº† 
 		cout << "[ " << time << " ] " << currentnum << " = ";
-		preprenum = prenum ; // °O¿ı«e¤@­Ó¼Æ 
-		prenum = currentnum ; // ¬ö¿ı¥Ø«eªº¼Æ 
-		long long int sqrtnum = sqrt( currentnum ) ; // ¶}®Ú¸¹ 
+		preprenum = prenum ; // è¨˜éŒ„å‰ä¸€å€‹æ•¸ 
+		prenum = currentnum ; // ç´€éŒ„ç›®å‰çš„æ•¸ 
+		long long int sqrtnum = sqrt( currentnum ) ; // é–‹æ ¹è™Ÿ 
   	    long long int runtime = 0 ;
   	    time++ ;
-  	    Findfactor( sqrtnum, currentnum, runtime ) ; // ¶}©l§ä¦]¼Æ 
-  	    Fibonacci( preprenum, prenum, inputnum, time ) ; // ¥l³ê¦Û¤v 
+  	    Findfactor( sqrtnum, currentnum, runtime ) ; // é–‹å§‹æ‰¾å› æ•¸ 
+  	    Fibonacci( preprenum, prenum, inputnum, time ) ; // å¬å–šè‡ªå·± 
 	}
 } // Fibonacci()
 
-void  Findfactor( long long int & time, long long int currentnum, long long int & runtime ) { // §ä¦]¼Æªº»¼°j 
+void  Findfactor( long long int & time, long long int currentnum, long long int & runtime ) { // æ‰¾å› æ•¸çš„éè¿´ 
 	if ( time == 0 ) {
-		; // ¶]§¹¤F 
+		; // è·‘å®Œäº† 
 	}
 	else {
 		runtime++ ;
 		if ( runtime > 10000000 ) {   
-    		cout << " ¡irecursion time: more than   10000000 times.¡j" << endl ;
+    		cout << " ã€recursion time: more than   10000000 times.ã€‘" << endl ;
     		time = 1 ;  
-		} // ¶W¹L 10000000 ¦¸¤F 
-		else if ( currentnum % time == 0 ) { // §ä¨ì¤F 
-			long long int anotherfactor = currentnum / time ; // ³]©w¥t¤@­Ó¦]¼Æ 
-    		cout << time << " * " << anotherfactor << " ¡irecursion time: " << runtime << " times.¡j" << endl ;
+		} // è¶…é 10000000 æ¬¡äº† 
+		else if ( currentnum % time == 0 ) { // æ‰¾åˆ°äº† 
+			long long int anotherfactor = currentnum / time ; // è¨­å®šå¦ä¸€å€‹å› æ•¸ 
+    		cout << time << " * " << anotherfactor << " ã€recursion time: " << runtime << " times.ã€‘" << endl ;
     		time = 1 ;
-		} // §ä¨ì¨Ã¸õ»¼°j 
+		} // æ‰¾åˆ°ä¸¦è·³éè¿´ 
 		
-		time-- ; // ©¹«e§ä 
-		Findfactor( time, currentnum, runtime ) ; // ¥l³ê¦Û¤v 
+		time-- ; // å¾€å‰æ‰¾ 
+		Findfactor( time, currentnum, runtime ) ; // å¬å–šè‡ªå·± 
 	}
 } // Findfactor()
